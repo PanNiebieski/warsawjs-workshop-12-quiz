@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <h2 class="p-2">{{d.text}}</h2>
+    <h2 >{{d.text}}</h2>
      <ul>
           <li v-for="(item, index) in d.answers">
                 <answer :a="item" :number="index" v-on:click.native="selectAnswer(index)"></answer>
@@ -39,8 +39,6 @@ export default {
         }
       }
   },
-
-
 
 }
 
