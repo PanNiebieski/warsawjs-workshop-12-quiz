@@ -21,7 +21,7 @@
             Graulacje
            </h2>
           <router-link to="/" class="btn btn-success  btn-block">Wroc</router-link>
-
+          <a class="btn btn-success btn-block" v-on:click="changeCourse()">Daj mi inny quiz</a>
         </div>
   </div>
 </template>
@@ -64,7 +64,8 @@ export default {
         this.currentQuestionIndex = 0;
       },
       changeCourse() {
-
+        this.currentQuestionIndex = 0;
+        this.done = false;
         if (this.quizes.length > this.currentQuizIndex   + 1) {
             this.currentQuizIndex = this.currentQuizIndex+ 1;
 
