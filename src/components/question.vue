@@ -1,10 +1,10 @@
 <template>
 
   <div>
-    <p>{{d.text}}</p>
+    <h2 class="p-2">{{d.text}}</h2>
      <ul>
           <li v-for="(item, index) in d.answers">
-                <answer :a="item" v-on:click.native="selectAnswer(index)"></answer>
+                <answer :a="item" :number="index" v-on:click.native="selectAnswer(index)"></answer>
           </li>
       </ul>
   </div>
@@ -33,11 +33,9 @@ export default {
 
           this.$emit('selectCorrectAnswer');
 
-          alert('Win');
-
         } else {
-          alert('Lose');
 
+          this.$emit('selectIncorrectAnswer');
         }
       }
   },

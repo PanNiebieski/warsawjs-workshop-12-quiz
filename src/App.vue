@@ -7,9 +7,10 @@
 
     v-on:selectCorrectAnswer="advance"
     v-on:selectIncorrectAnswer="loose"
-
+    v-if="!done"
 
      ></question>
+     <div  v-if="done">Graulacje</div>
   </div>
 </template>
 
@@ -30,6 +31,7 @@ export default {
         questions :quizzesFile.quizzes[0].questions,
         title : "warsawjs-workshop-12-quiz",
         currentQuestionIndex : 0,
+        done : false,
       };
     },
     methods : {
@@ -39,12 +41,12 @@ export default {
             this.currentQuestionIndex = this.currentQuestionIndex + 1;
         }
         else {
-          console.log('koniec');
+            this.done = true;
         }
 
       },
       loose() {
-
+        this.currentQuestionIndex = 0;
       }
     },
     computed : {

@@ -1,6 +1,6 @@
 <template>
-<div>
-  <button type="button"  >  {{a}}</button>
+<div class="p-1">
+  <button type="button"   class="btn btn-primary" >{{number}} :: {{a}}</button>
 </div>
 
 
@@ -12,7 +12,7 @@
 
 export default {
   name: "answer",
-  props: ['a',],
+  props: ['a','number'],
   data: function() {
     return {
       test : "Inny narzędzie"
