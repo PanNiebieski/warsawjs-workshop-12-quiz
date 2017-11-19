@@ -4,7 +4,8 @@
     <div class="row"     v-if="!done">
       <div class="col-sm-4" >
           <list :d="questions" :ind="currentQuestionIndex"></list>
-          <router-link to="/" class="btn btn-info  btn-block">Home</router-link>
+          <router-link to="/" class="btn btn-success btn-block">Home</router-link>
+          <a class="btn btn-success btn-block" v-on:click="changeCourse()">Daj mi inny quiz</a>
       </div>
       <div class="col-sm-8" >
         <question :d="questions[currentQuestionIndex]"
@@ -19,7 +20,7 @@
            <h2>
             Graulacje
            </h2>
-          <router-link to="/" class="btn btn-info  btn-block">Wroc</router-link>
+          <router-link to="/" class="btn btn-success  btn-block">Wroc</router-link>
 
         </div>
   </div>
@@ -39,6 +40,8 @@ export default {
     },
     data() {
       return {
+        currentQuizIndex : 0,
+        quizes:quizzesFile.quizzes,
         questions :quizzesFile.quizzes[0].questions,
         title : "warsawjs-workshop-12-quiz",
         currentQuestionIndex : 0,
@@ -59,6 +62,20 @@ export default {
       },
       loose() {
         this.currentQuestionIndex = 0;
+      },
+      changeCourse() {
+
+        if (this.quizes.length > this.currentQuizIndex   + 1) {
+            this.currentQuizIndex = this.currentQuizIndex+ 1;
+
+            this.questions = this.quizes[this.currentQuizIndex].questions;
+        }
+        else {
+            this.currentQuizIndex = 0;
+            this.questions = this.quizes[0].questions;
+        }
+
+
       }
     },
     computed : {
