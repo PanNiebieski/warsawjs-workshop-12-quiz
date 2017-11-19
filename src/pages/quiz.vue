@@ -23,7 +23,14 @@
           <router-link to="/" class="btn btn-success  btn-block">Wroc</router-link>
           <a class="btn btn-success btn-block" v-on:click="changeCourse()">Daj mi inny quiz</a>
         </div>
+          <div>
+        <pre>
+      {{$data}}
+    </pre>
   </div>
+  </div>
+
+
 </template>
 
 <script>
@@ -33,7 +40,7 @@ import question from "../components/question"
 import questionlist from "../components/questionlist"
 
 export default {
-    name : 'app',
+    name : 'quiz',
     components: {
       'question' : question,
       'list' : questionlist
@@ -41,8 +48,8 @@ export default {
     data() {
       return {
         currentQuizIndex : 0,
-        quizes:quizzesFile.quizzes,
-        questions :quizzesFile.quizzes[0].questions,
+        quizes:this.$root.quizzes,
+        questions :this.$root.quizzes[0].questions,
         title : "warsawjs-workshop-12-quiz",
         currentQuestionIndex : 0,
         done : false,
