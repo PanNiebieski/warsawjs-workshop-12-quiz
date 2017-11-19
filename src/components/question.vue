@@ -1,9 +1,9 @@
 <template>
 
   <div>
-    <h2 >{{d.text}}</h2>
-     <ul>
-          <li v-for="(item, index) in d.answers">
+    <h2 class="p-5">{{d.text}}</h2>
+     <ul class="list-group">
+          <li v-for="(item, index) in d.answers" class="list-group-item">
                 <answer :a="item" :number="index" v-on:click.native="selectAnswer(index)"></answer>
           </li>
       </ul>

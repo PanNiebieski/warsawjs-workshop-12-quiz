@@ -1,21 +1,27 @@
 <template>
   <div>
 
-    <div class="row">
+    <div class="row"     v-if="!done">
       <div class="col-sm-4" >
-          <list :d="questions[currentQuestionIndex]" :ind="currentQuestionIndex"></list>
-
+          <list :d="questions" :ind="currentQuestionIndex"></list>
+          <router-link to="/" class="btn btn-info  btn-block">Home</router-link>
       </div>
       <div class="col-sm-8" >
         <question :d="questions[currentQuestionIndex]"
         v-on:selectCorrectAnswer="advance"
         v-on:selectIncorrectAnswer="loose"
-        v-if="!done"
+
         ></question>
-           <div  v-if="done">Graulacje</div>
+
       </div>
     </div>
+         <div  v-if="done">
+           <h2>
+            Graulacje
+           </h2>
+          <router-link to="/" class="btn btn-info  btn-block">Wroc</router-link>
 
+        </div>
   </div>
 </template>
 
@@ -63,3 +69,9 @@ export default {
 
 };
 </script>
+<style>
+h2 {
+  text-align: center;
+}
+
+</style>

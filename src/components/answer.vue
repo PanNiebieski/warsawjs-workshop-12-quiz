@@ -1,7 +1,7 @@
 <template>
-<div class="p-1">
-  <button type="button"   class="btn btn-primary" >{{number}} :: {{a}}</button>
-</div>
+
+  <button type="button"  class="btn btn-primary btn-block" >{{a}}</button>
+
 
 
 
